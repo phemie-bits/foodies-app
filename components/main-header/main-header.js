@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import logoImg from '@/assets/logo.png'
 import classes from './main-header.module.css'
