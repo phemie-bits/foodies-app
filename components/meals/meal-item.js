@@ -10,21 +10,12 @@ import { useTransition } from 'react';
 export default function MealItem({ title, slug, image, summary, creator }) {
   const [isPending, startTransition] = useTransition();
   const handleDelete = async () => {
-    // try {
-    //   await removeMeal(slug); // Pass the id to deleteMeal
-    //   //window.location.reload(); // Refresh to reflect changes
-    // } catch (error) {
-    //   console.error('Failed to delete meal:', error);
-    //   alert(error);
-    // }
-
     startTransition(async () => {
       const result = await removeMeal(slug);
       if (result?.success) {
-          // Optionally trigger a page reload or show a success message
-          //window.location.reload(); // Reloads the page to reflect changes
+
       } else {
-          alert(result?.message || 'Failed to delete the meal.');
+          console.log(result?.message || 'Failed to delete the meal.');
       }
   });
   };
